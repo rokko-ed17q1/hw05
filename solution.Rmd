@@ -1,0 +1,56 @@
+---
+title: 'hw05: Simulation'
+author: "Your Name^[Affiliation]"
+date: '`r format(Sys.time(), "%d %B, %Y")`'
+output:
+  bookdown::pdf_document2:
+    fig_caption: yes
+    includes:
+      in_header: asset/latex/custom.sty
+    keep_tex: no
+    latex_engine: pdflatex
+    number_sections: yes
+    template: null
+    toc: no
+  bookdown::html_document2: default
+documentclass: scrartcl
+---
+
+```{r, cache = FALSE, include = FALSE}
+knitr::read_chunk("R/solution.R")
+```
+
+
+# `lssr()` function
+
+```{r linear-state-space-representation}
+```
+
+
+# Parameters
+
+```{r solution-parameters}
+```
+with random input
+```{r solution-input}
+```
+
+# Simulation
+
+```{r solution-simulation}
+```
+
+# Problem 2: Another simulation
+<!-- Write your solution here.  --->
+
+
+
+
+
+
+
+# Problem 3: Colosure (Optional)
+<!-- Write code for the optional problem below.  --->
+
+
+
