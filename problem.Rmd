@@ -145,8 +145,13 @@ $$
 ```{r ar1-model}
 ```
 
-This function differs from `cobb_douglas` in one respect; it has a local variable named `state`. A local variable defined within a higher order function is called "closure."
-Usually, a local variable within a function is trashed after the function call finishes because there exists no reference to that variable. Closures, in contrast, are persistent. As long as a reference to the returned function (`update` in our case) exists, the reference to the closure remains intact. Note that the assignment to `state` in the inner function `update_rule` uses the special assignment operator `<<-`, which assigns the right-hand side to the variables that was defined outside the inner function.
+This function differs from `cobb_douglas` in one respect; it has a local variable named `state`. The outer function creates an environment in which data and a function reside. 
+Usually, a local variable within a function is trashed after the function call finishes because there exists no reference to that variable. In case of a higher order function,
+the inner function makes persistent the environment where the function was created and 
+thus the paired data as well. This inner function, which encloses the parent environment, 
+is called "closure." In the above example, `update()` is a closure and it has data `state`.
+
+Note that the assignment to `state` in the inner function `update_rule` uses the global assignment operator `<<-`, which assigns the right-hand side to the variables that was defined outside the inner function.
 
 We can use this function to simulate an AR(1) model.
 
